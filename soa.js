@@ -14,7 +14,7 @@ module.exports = {
 	"swagger": true,
 
 	//basic service information
-	"serviceName": "golangPub",
+	"serviceName": "golangpub",
 	"serviceGroup": "Custom Services",
 	"serviceVersion": 1,
 	"servicePort": 4382,
