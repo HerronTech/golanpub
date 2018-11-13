@@ -1,0 +1,46 @@
+sudo: false
+
+language: go
+
+env:
+  matrix:
+  - GO111MODULE=on
+
+os:
+- linux
+
+go:
+- master
+
+node_js: 8
+
+git:
+  depth: 1
+
+branches:
+  only:
+  - master
+  - 1.11.x
+
+install: false
+
+notifications:
+  email: false
+
+before_script:
+- go get
+- go get golang.org/x/tools/cmd/cover
+- go get github.com/mattn/goveralls
+
+
+script:
+- go build
+- go test -v -covermode=count -coverprofile=coverage.out
+- "$HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci"
+
+after_success:
+- docker login -u $docker_username -p $docker_password
+- docker build -t soajsGoDemo .
+- docker tag soajsGoDemo:latest ${docker_username}/soajsGoDemo:${TRAVIS_BRANCH}
+- docker push ${docker_username}/soajsGoDemo:${TRAVIS_BRANCH}
+- mkdir node_modules && npm install request@2.84.0 && node ./soajs.cd.js
