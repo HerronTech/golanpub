@@ -14,10 +14,10 @@ module.exports = {
 	"swagger": true,
 
 	//basic service information
-	"serviceName": "golang",
+	"serviceName": "golangPub",
 	"serviceGroup": "Custom Services",
 	"serviceVersion": 1,
-	"servicePort": 4383,
+	"servicePort": 4382,
 	"requestTimeout": 30,
 	"requestTimeoutRenewal": 5,
 

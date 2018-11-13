@@ -52,5 +52,5 @@ func main() {
     router.HandleFunc("/tidbit/hello", SayHello).Methods("GET")
     router.HandleFunc("/tidbit/hello", ReturnSoajsData).Methods("POST")
 
-    log.Fatal(http.ListenAndServe(":4383", router))
+    log.Fatal(http.ListenAndServe(":4382", router))
 }
