@@ -40,7 +40,7 @@ script:
 
 after_success:
 - docker login -u $docker_username -p $docker_password
-- docker build -t soajsGoDemo .
-- docker tag soajsGoDemo:latest ${docker_username}/soajsGoDemo:${TRAVIS_BRANCH}
-- docker push ${docker_username}/soajsGoDemo:${TRAVIS_BRANCH}
+- docker build -t soajsgodemo .
+- docker tag soajsgodemo:latest ${docker_username}/soajsgodemo:${TRAVIS_BRANCH}
+- docker push ${docker_username}/soajsgodemo:${TRAVIS_BRANCH}
 - mkdir node_modules && npm install request@2.84.0 && node ./soajs.cd.js
