@@ -17,7 +17,7 @@ func SayHello(w http.ResponseWriter, r *http.Request) {
     vars := r.URL.Query()
 
     resp := Response{}
-    resp.Message = fmt.Sprintf("Hello DEMO, I am a GOLANG service, you are %v and your last name is: %v", vars["username"], vars["lastname"])
+    resp.Message = fmt.Sprintf("Hello Vinny, I am a GOLANG service, you are %v and your last name is: %v", vars["username"], vars["lastname"])
 
     respJson, err := json.Marshal(resp)
     if err != nil {
